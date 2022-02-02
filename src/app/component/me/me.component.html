@@ -1,0 +1,23 @@
+<div *ngIf="load">
+    <div class="row">
+        <div class="col">
+            <img [src]="user['images'][0].url" 
+            alt=""
+            class="img-thumbnail img-circle">
+        </div>
+        <div class="col">
+            <h1>
+                Hello {{ user['display_name'] }}
+            </h1>
+            <br>
+            <h3>
+                How have you been?
+            </h3>
+        </div>
+    </div>
+    
+    <hr>
+    <p>
+        This is Wonderfull, you have {{ user['followers']['total'] + 123456 | number }} followers
+    </p>
+</div>
