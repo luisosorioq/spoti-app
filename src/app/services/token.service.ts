@@ -19,8 +19,6 @@ export class TokenProvider {
     return this.http.get(this.endpoint)
       .toPromise()
       .then((response: any) => {
-        // console.log('Token en el provider', response);
-        // this.parameters = response.parameters;
         this.token = response.access_token;
       }
     );
