@@ -1,5 +1,8 @@
-<div class="row">
-    <div class="col">
+<div class="search">
+    <div class="search-item">
+        <h2>Artists Search</h2>
+    </div>
+    <div class="search-item">
         <input type="text" 
             (keyup.enter)="searchArtist(searchText.value)" 
             #searchText 
@@ -7,8 +10,9 @@
             value=""
             placeholder="Search Artist">
     </div>
+
 </div>
 
-<app-loading *ngIf="loading" class="m-5"></app-loading>
+<!-- <app-loading *ngIf="loading" class="m-5"></app-loading> -->
 
 <app-cards [items]="artists" *ngIf="!loading" class="m-5"></app-cards>

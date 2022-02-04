@@ -4,4 +4,11 @@
     <h3>Error {{ codeError }}</h3>
     <p>{{ messageError }}</p>
 </div>
-<app-cards [items]="newSongs" *ngIf="!loading"></app-cards>
+<main class="container" *ngIf="!loading">
+    <app-search></app-search>
+    
+    <h2>
+        News on Spoty-Luigi
+    </h2>
+    <app-cards [items]="newSongs"></app-cards>
+</main>

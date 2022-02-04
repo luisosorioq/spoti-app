@@ -1,43 +1,55 @@
 <app-loading *ngIf="loading"></app-loading>
 
-<div *ngIf="!loading" class="row">
-    <div class="col-2">
+<div *ngIf="!loading" class="artist">
+    <div class="artist-item">
         <img [src]="artist.images | noimage" 
             alt=""
             class="img-thumbnail img-circle">
     </div>
-    <div class="col">
+    <div class="artist-item">
         <h2>{{ artist.name }}</h2>
+        <p>&nbsp;</p>
         <p>
-            <a [href]="artist.external_urls.spotify"
-                target="_blank">Go to Artist web page</a>
+            - <a [href]="artist.external_urls.spotify"
+            target="_blank">Go to Artist web page</a>
         </p>
+        <p>&nbsp;</p>
+        <ul>
+            <h4>- Genres</h4>
+            <li *ngFor="let generos of artist.genres">
+                {{ generos }}
+            </li>
+        </ul>
     </div>
-    <div class="col-4 text-right">
-        <button routerLink="/search" class="btn btn-outline-danger btn-block">
-            Go back
+    <div class="artist-item">
+        <button routerLink="/home" class="btn btn-outline-danger btn-block">
+            Go back to Home
         </button>
     </div>
 </div>
 <div *ngIf="!loading" class="row mt-2" style="background-color: aliceblue;">
-    <table class="table tale-condensed">
+    <table class="table">
         <thead>
             <tr>
-                <th>Photo</th>
-                <th>Album</th>
-                <th>Song</th>
+                <th class="table-hide-1">Photo</th>
+                <th class="table-hide-2">Album</th>
+                <th class="table-hide-3">Song</th>
+                <th class="table-hide-3"></th>
                 <th>Preview</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let track of topTracks">
-                <td>
+                <td class="table-hide-1">
                     <img [src]="track.album.images | noimage " 
                         alt=""
-                        class="img-thumb">
+                        class="">
                 </td>
-                <td>{{ track.album.name }}</td>
-                <td>{{ track.name }}</td>
+                <td class="table-hide-2">{{ track.album.name }}</td>
+                <td class="table-hide-3">{{ track.name }}</td>
+                <td class="table-hide-3">
+                    <i class="heart fas fa-heart"></i>
+                </td>
                 <td>
                     <!-- <audio [src]="track.preview_url"
                         controls></audio> -->

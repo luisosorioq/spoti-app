@@ -24,7 +24,7 @@ export class HomeComponent {
         this.loading = false;
       }, ( errorService ) => {
         // console.log(errorService);
-        console.log(errorService);
+        // console.log(errorService);
         this.error = true;
         this.messageError = errorService.error.error.message;
         this.codeError = errorService.error.error.status;

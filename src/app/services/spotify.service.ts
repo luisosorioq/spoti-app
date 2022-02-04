@@ -9,8 +9,8 @@ import { TokenProvider } from './token.service';
 export class SpotifyService {
 
   token: string = '';
-  user_id: string = '';
-  client_id = '';
+  user_id: string = '31whl5oxcrfsbsfj5wnatatmx3v4';
+  client_id = 'aaf2e7da36984914bf73c7664916cb03';
   client_secret = '7c96e95d7763455897f49dcbcab8e2cc';
 
   constructor(private http:HttpClient, private access_token: TokenProvider) {

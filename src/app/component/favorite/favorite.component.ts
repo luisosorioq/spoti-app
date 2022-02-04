@@ -15,14 +15,14 @@ export class FavoriteComponent {
   constructor( private spotify: SpotifyService ) {
     this.spotify.getSaved()
       .subscribe( (data: any) => {
-        console.log('Mis favotiros', data);
+        // console.log('Mis favotiros', data);
         this.favorite = data;
         this.loadFav = true;
       });
 
     this.spotify.getPlaylists()
       .subscribe( (dataPl: any) => {
-        console.log(dataPl);
+        // console.log(dataPl);
         this.playlist = dataPl;
         this.loadPl = true;
       });

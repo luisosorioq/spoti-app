@@ -1,24 +1,24 @@
-<div class="row row-cols-1 row-cols-md-3 g-4 animated fadeIn">
+
+<div class="card">
     <div *ngFor="let item of items" 
-        class="col card text-white bg-" 
-        style="max-width: 18rem;" >
+        class="card-item" >
         <img [src]="item.images | noimage " 
-            class="card-img-top" 
+            class="" 
             alt="...">
-        <div class="card-header">{{ item.name }} </div>
-        <div class="card-body">
-            <!-- {{ item | json }} -->
+        <h3>{{ item.name }} </h3>
+        <p>&nbsp;</p>
+        <p>
             <span *ngFor="let artist of item.artists" 
-                class="badge rounded-pill bg-primary puntero"
+                class="puntero card-item-artista"
                 (click)="showArtist(artist)">
                 {{ artist.name }}
             </span>
             <span *ngIf="item.type === 'artist'" 
-                class="badge rounded-pill bg-danger puntero"
+                class="puntero card-item-artista"
                 (click)="showArtist(item)">
                 {{ item.name }}
             </span>
-        </div>
-        <div class="card-footer bg-transparent border-success">Footer</div>
+        </p>
+        <p>&nbsp;</p>
     </div>
 </div>
