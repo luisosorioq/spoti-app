@@ -16,7 +16,6 @@ export class ArtistComponent {
                 private spotify: SpotifyService) { 
     this.loading =  true;
     this.router.params.subscribe( params => {
-      // console.log(params['id']);
       this.getArtist(params['id']);
       this.getTopTracks(params['id']);
     });
@@ -25,7 +24,6 @@ export class ArtistComponent {
   getArtist(id: string ) {
     this.spotify.getArtist( id )
       .subscribe( dataArtist => {
-        // console.log(dataArtist);
         this.artist = dataArtist;
         this.loading =  false;
       });
@@ -34,7 +32,6 @@ export class ArtistComponent {
   getTopTracks(id: string) {
     this.spotify.getTopTracks( id )
       .subscribe( top => {
-        // console.log('El top 10', top);
         this.topTracks = top;
       });
   }

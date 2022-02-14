@@ -5,6 +5,7 @@ import { HomeComponent } from './component/home/home.component'
 import { IndexComponent } from './component/index/index.component';
 import { MeComponent } from './component/me/me.component';
 import { SearchComponent } from './component/search/search.component'
+// import { GuardGuard } from './services/guard.guard';
 
 export const ROUTES: Routes = [
     { path: 'index', component: IndexComponent },
@@ -13,6 +14,6 @@ export const ROUTES: Routes = [
     { path: 'search', component: SearchComponent },
     { path: 'me', component: MeComponent },
     { path: 'artist/:id', component: ArtistComponent },
-    { path: '', pathMatch: 'full', redirectTo: 'home' },
-    { path: '**', pathMatch: 'full', redirectTo: 'home' },
+    { path: '', pathMatch: 'full', redirectTo: 'index' },
+    { path: '**', pathMatch: 'full', redirectTo: 'index' },
 ];

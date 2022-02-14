@@ -12,6 +12,7 @@ import { CardsComponent } from './component/cards/cards.component';
 import { LoadingComponent } from './component/shared/loading/loading.component';
 import { IndexComponent } from './component/index/index.component';
 import { FavoriteComponent } from './component/favorite/favorite.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 // Importar las rutas para tener mas orden
 import { ROUTES } from './app.routes';
@@ -22,7 +23,7 @@ import { DomseguroPipe } from './pipes/domseguro.pipe';
 import { MeComponent } from './component/me/me.component';
 import { TokenProvider } from './services/token.service';
 
-export function tokenProviderFactory(provider: TokenProvider ) {
+export function tokenProviderFactory( provider: TokenProvider ) {
   return () => provider.getToken();
 }
 
@@ -39,13 +40,15 @@ export function tokenProviderFactory(provider: TokenProvider ) {
     LoadingComponent,
     IndexComponent,
     FavoriteComponent,
-    MeComponent
+    MeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot( ROUTES, { useHash: true } ),
+    RouterModule.forRoot( ROUTES ),
   ],
+  // RouterModule.forRoot( ROUTES ), { useHash: true } ),
   providers: [
     {
       provide: APP_INITIALIZER,

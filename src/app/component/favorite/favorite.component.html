@@ -1,4 +1,4 @@
-<h4>My Favorites</h4>
+<h4 class="favorite">My Favorites</h4>
 <table class="table table-condensed table-bordered">
   <thead>
     <tr>
@@ -10,18 +10,18 @@
   </thead>
   <tbody>
     <tr *ngFor="let track of favorite">
-        <td>
-            <img [src]="track.album.images | noimage " 
+        <td class="table-hide-1">
+            <img [src]="track.track.album.images | noimage " 
                 alt=""
                 class="img-thumb">
         </td>
-        <td>{{ track.album.name }}</td>
-        <td>{{ track.name }}</td>
+        <td class="table-hide-2">{{ track.track.album.name }}</td>
+        <td class="table-hide-3">{{ track.track.name }}</td>
         <td>
             <!-- <audio [src]="track.preview_url"
                 controls></audio> -->
             <iframe 
-                [src]="track.id | domseguro :'https://open.spotify.com/embed/track/'" 
+                [src]="track.track.id | domseguro :'https://open.spotify.com/embed/track/'" 
                 width="300" 
                 height="80" 
                 frameborder="0" 
@@ -30,16 +30,3 @@
     </tr>
   </tbody>
 </table>
-
-<hr>
-
-<h4>My Playlists</h4>
-<ol class="list-group list-group-numbered" *ngIf="loadPl">
-    <li *ngFor="let list of playlist" class="list-group-item d-flex justify-content-between align-items-start">
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">{{ list.name }}</div>
-          Description: {{ list.description }}
-        </div>
-        <span class="badge bg-primary rounded-pill">Tracks: {{ list.tracks.total }}</span>
-    </li>
-</ol>

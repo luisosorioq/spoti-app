@@ -9,26 +9,26 @@ import { TokenProvider } from './token.service';
 export class SpotifyService {
 
   token: string = '';
-  user_id: string = '31whl5oxcrfsbsfj5wnatatmx3v4';
-  client_id = 'aaf2e7da36984914bf73c7664916cb03';
-  client_secret = '7c96e95d7763455897f49dcbcab8e2cc';
-
+  user_id = '';
   constructor(private http:HttpClient, private access_token: TokenProvider) {
-    this.token = access_token.token;
+    this.token = "" + this.access_token.getToken();
+    if ( localStorage.getItem('SpotiLuigiToken') !== '' ) {
+      this.token = "" + localStorage.getItem('SpotiLuigiToken');
+    }
   }
 
-  getQuery( query: string) {
-      const url = `https://api.spotify.com/v1/${ query }`;
-      const headers = new HttpHeaders({
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${ this.token }`
-      });
-      return this.http.get(url, { headers } );
+  getQuery( query: string, scope?: string) {
+    const url = `https://api.spotify.com/v1/${ query }`;
+    const headers = new HttpHeaders({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${ this.token }`
+    });
+    return this.http.get(url, { headers } );
   }
 
   getMe() {
-    return this.getQuery(`users/${this.user_id}`);
+    return this.getQuery(`me`);
   }
 
   getNewReleases() {
@@ -62,7 +62,7 @@ export class SpotifyService {
   }
 
   getSaved() {
-    return this.getQuery(`me/tracks?market=US`)
+    return this.getQuery(`me/tracks`)
       .pipe( map( (dataTracks: any) => dataTracks['items'] ));
   }
 }

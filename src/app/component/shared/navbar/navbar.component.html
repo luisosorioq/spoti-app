@@ -1,9 +1,9 @@
 <header>
-  <div class="item header">
-      <a class="header-item" href="#">
+  <div class="item header" *ngIf="loading">
+      <a class="header-item" href="home">
           <img src="assets/img/logo-200.png" >
-      </a>
-      <a class="header-item" href="#">
+      </a> 
+      <a class="header-item" href="home">
         <span class="hideMax">App</span>
         <span class="hideMini">{{ titleApp }}</span>
       </a>
@@ -19,7 +19,7 @@
         <span class="hideMax">I am</span>
         <span class="hideMini">{{ user['display_name'] }}</span>
       </a>
-      <a class="header-item" routerLink="home">
+      <a class="header-item" routerLink="index" >
         <span class="hideMax">Bye</span>
         <span class="hideMini">Log Out</span>
       </a>

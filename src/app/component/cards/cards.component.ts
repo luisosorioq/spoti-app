@@ -6,9 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './cards.component.html'
 })
 export class CardsComponent {
-
-  // artistCount: number = 0;
-
+  
   @Input() items: any[] = [];
 
   constructor( private router: Router) { }
@@ -22,8 +20,6 @@ export class CardsComponent {
     } else {
       artistId = item.artists.id;
     }
-    // console.log(artistId);
-    // this.artistCount = item.length;
     this.router.navigate(['/artist', artistId]);
   }
 

@@ -8,6 +8,7 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class NavbarComponent {
 
+  loading: boolean = false;
   user: any = [];
   error: boolean = false;
   login = false;
@@ -16,14 +17,17 @@ export class NavbarComponent {
   constructor( private spotify: SpotifyService, private app:AppComponent) { 
     this.getMe();
     this.titleApp = app.title;
+    if ( localStorage.getItem('spotify_auth_state') ) {
+      this.login = true;
+      this.loading = true;
+    }
   }
 
   getMe() {
     this.spotify.getMe()
       .subscribe( (dataMe:any) => {
         this.user = dataMe;
-        this.login = true;
     });
   }
-
+  
 }
